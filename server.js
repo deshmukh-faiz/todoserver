@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import Joi from "joi";
+const PORT = process.env.PORT || 8081
 
 const saltRounds = 10; // Define the number of salt rounds
 
@@ -193,7 +194,7 @@ app.get("/logout", (req, res) => {
 });
 
 app.listen(8081, () => {
-  console.log("Server is running on 8081");
+  console.log(`Server is running on ${PORT}`);
 });
 
 
