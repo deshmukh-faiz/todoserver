@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import Joi from "joi";
+
 const PORT = process.env.PORT || 8081
 
 const saltRounds = 10; // Define the number of salt rounds
@@ -14,7 +15,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3001"],
     methods: ["GET, POST, PUT, DELETE"],
     credentials: true,
   })
