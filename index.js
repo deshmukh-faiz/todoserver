@@ -1,5 +1,4 @@
 import express from "express";
-import mysql from "mysql";
 import cors from "cors";
 import bodyParser from "body-parser";
 import bcrypt from "bcrypt";
@@ -52,10 +51,6 @@ app.get('/SS', (req, res) => {
 // How to use html in express js:
 
 
-app.get("/", verifyUser, (req, res) => {
-  return res.json({ Status: "Success", name: req.name });
-});
-
 app.get("/GetEmployees", (req, res) => {
   const sql = "SELECT * FROM employee_details";
   dbInfo.query(sql, (err, result) => {
@@ -65,6 +60,10 @@ app.get("/GetEmployees", (req, res) => {
       return res.json({ success: true, data: result });
     }
   });
+});
+
+app.get("/", verifyUser, (req, res) => {
+  return res.json({ Status: "Success", name: req.name });
 });
 
 app.post("/employee_details", (req, res) => {
@@ -167,7 +166,7 @@ app.post("/Login", async (req, res) => {
                 const token = jwt.sign({ name }, "jwt-secret-key", {
                   expiresIn: "1d",
                 });
-                res.cookie("token", token, { secure: true });
+                res.cookie("token", token, { secure: false });
                 return res.json({ Status: "Success" });
               } else {
                 return res.json({ error: "Password not matched" });
