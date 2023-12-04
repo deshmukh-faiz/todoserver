@@ -13,7 +13,7 @@ const saltRounds = 10; // Define the number of salt rounds
 const app = express();
 app.use(express.json());
 
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+app.use(cors({ credentials: true, origin: 'https://unique-otter-65d9b1.netlify.app' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
