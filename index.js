@@ -6,7 +6,6 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import Joi from "joi";
-import bodyParser from "body-parser";
 
 const PORT = process.env.PORT || 8081
 
@@ -127,7 +126,7 @@ app.post("/Sign_Up", (req, res) => {
       if (err) {
         return res.json({ Error: "Inserting data error in server" });
       }
-      return res.json({ Status: "Success" });
+      return res.json({ Status: "Success" }); // yaha kuch nahi likhe matlab else consider karta.
     });
   });
 });
