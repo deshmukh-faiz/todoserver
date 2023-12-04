@@ -14,7 +14,7 @@ const saltRounds = 10; // Define the number of salt rounds
 const app = express();
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -167,7 +167,7 @@ app.post("/Login", async (req, res) => {
                 const token = jwt.sign({ name }, "jwt-secret-key", {
                   expiresIn: "1d",
                 });
-                res.cookie("token", token);
+                res.cookie("token", token, { secure: true });
                 return res.json({ Status: "Success" });
               } else {
                 return res.json({ error: "Password not matched" });
