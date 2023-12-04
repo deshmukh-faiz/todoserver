@@ -1,10 +1,12 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+import bodyParser from "body-parser";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import Joi from "joi";
+import bodyParser from "body-parser";
 
 const PORT = process.env.PORT || 8081
 
